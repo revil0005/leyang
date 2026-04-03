@@ -14,8 +14,8 @@ export async function POST(request: Request) {
       data: {
         name,
         phone,
-        has_experience,
-        course_id,
+        hasExperience: String(has_experience) === 'true' || has_experience === true || has_experience === 'yes',
+        courseId: course_id,
       },
     });
 
