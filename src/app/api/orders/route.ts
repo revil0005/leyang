@@ -4,20 +4,19 @@ import prisma from '@/lib/db';
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { name, phone, service_type, frequency, expected_time, notes } = data;
+    const { service_type, frequency, expected_time, address } = data;
 
-    if (!name || !phone || !service_type || !frequency || !expected_time) {
+    if (!service_type || !frequency || !expected_time || !address) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const order = await prisma.order.create({
+    const order = await (prisma as any).order.create({
       data: {
-        name,
-        phone,
-        service_type,
+        userId: 1, // Simulated user for now
+        serviceType: service_type,
         frequency,
-        expected_time,
-        notes: notes || '',
+        expectedTime: new Date(expected_time),
+        address,
       },
     });
 
