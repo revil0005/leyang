@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  phone     String   @unique
+  name      String?
+  role      Role     @default(ELDERLY_FAMILY)
+  createdAt DateTime @default(now())
+  caregiver Caregiver?
+  orders    Order[]
+  reviews   Review[]
+}
+
+enum Role {
+  ELDERLY_FAMILY
+  CAREGIVER
+  ADMIN
+}
+
+model Caregiver {
+  id         Int      @id @default(autoincrement())
+  userId     Int      @unique
+  user       User     @relation(fields: [userId], references: [id])
+  skills     String[]
+  experience String
+  bio        String
+  status     RegStatus @default(PENDING)
+  rating     Float    @default(5.0)
+  createdAt  DateTime @default(now())
+  orders     Order[]
+  reviews    Review[]
+}
+
+enum RegStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Order {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  user          User     @relation(fields: [userId], references: [id])
+  caregiverId   Int?
+  caregiver     Caregiver? @relation(fields: [caregiverId], references: [id])
+  serviceType   String
+  frequency     String
+  expectedTime  DateTime
+  address       String
+  status        OrderStatus @default(PENDING)
+  createdAt     DateTime @default(now())
+  review        Review?
+}
+
+enum OrderStatus {
+  PENDING
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+}
+
+model TrainingSignup {
+  id             Int      @id @default(autoincrement())
+  name           String
+  phone          String
+  hasExperience  Boolean  @default(false)
+  courseId       String
+  status         String   @default("PENDING")
+  createdAt      DateTime @default(now())
+}
+
+model Review {
+  id          Int       @id @default(autoincrement())
+  orderId     Int       @unique
+  order       Order     @relation(fields: [orderId], references: [id])
+  caregiverId Int
+  caregiver   Caregiver @relation(fields: [caregiverId], references: [id])
+  userId      Int
+  user        User      @relation(fields: [userId], references: [id])
+  rating      Int       // 1-5 stars
+  content     String?
+  createdAt   DateTime  @default(now())
+}
