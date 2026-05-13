@@ -1,11 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Noto_Serif_SC, Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SOSButton from "@/components/SOSButton";
 
-export const inter = Inter({ subsets: ["latin"] });
+const notoSerif = Noto_Serif_SC({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-serif",
+});
+
+const notoSans = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: "乐养E居 - 专业居家养老",
@@ -31,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body className={`${notoSerif.variable} ${notoSans.variable} ${notoSans.className} min-h-screen flex flex-col antialiased`}>
         <Navbar />
         <main className="flex-1 w-full max-w-[100vw] mx-auto md:max-w-screen-xl relative overflow-x-hidden">
           {children}

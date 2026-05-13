@@ -5,9 +5,9 @@ import Image from 'next/image';
 import { BookOpen, CheckCircle, Clock, X, ArrowRight } from 'lucide-react';
 
 const courses = [
-  { id: "c1", title: "生活照料基础技能 (吃、住、行)", duration: "40课时", desc: "学习老年人日常饮食搭配、起居照料、出行辅助等基础生活照护技能，掌握日常应对方案。" },
-  { id: "c2", title: "康复护理与安全保障 (护、医)", duration: "60课时", desc: "由三甲医院资深护士长授课，深入学习常见老年慢性病护理、突发状况急救以及基础康复训练手法。" },
-  { id: "c3", title: "家政服务与沟通技巧 (购、扫、乐)", duration: "32课时", desc: "培养专业的家政清洁标准，代办购物防骗技巧，以及与老年人沟通的心理疏导与陪伴技巧。" }
+  { id: "c1", title: "生活照料基础技能", duration: "40课时", desc: "学习老年人日常饮食搭配、起居照料、出行辅助等基础生活照护技能，掌握日常应对方案。" },
+  { id: "c2", title: "康复护理与安全保障", duration: "60课时", desc: "由三甲医院资深护士长授课，深入学习常见老年慢性病护理、突发状况急救以及基础康复训练手法。" },
+  { id: "c3", title: "家政服务与沟通技巧", duration: "32课时", desc: "培养专业的家政清洁标准，代办购物防骗技巧，以及与老年人沟通的心理疏导与陪伴技巧。" }
 ];
 
 export default function TrainingPage() {
@@ -39,25 +39,27 @@ export default function TrainingPage() {
       
       {/* Banner */}
       <section className="relative w-full h-[45vh] min-h-[350px] flex items-center justify-center overflow-hidden">
-        <Image 
-          src="https://images.unsplash.com/photo-1576091160550-217359f4b0d4?auto=format&fit=crop&q=80&w=2000" 
-          alt="Professional Caregiver Training" 
-          fill 
-          className="object-cover" 
-          priority 
-          unoptimized
+        <Image
+          src="/images/caregiver3.png"
+          alt="专业护理人才培训基地"
+          fill
+          className="object-cover"
+          style={{ objectPosition: '50% 15%' }}
+          priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/60 to-brand/40" />
+        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.35)' }} />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <div className="inline-block px-4 py-1 mb-6 bg-white/20 text-white font-bold rounded-full text-sm backdrop-blur-md border border-white/30">
             赋能关爱 · 专业铸就品质
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-xl">
-            专业护理人才培训基地
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 drop-shadow-md font-medium leading-relaxed">
-            加入乐养E居，系统化学习金牌护理技能，打开高薪职业通道
-          </p>
+          <div className="inline-block bg-black/30 backdrop-blur-sm rounded-2xl px-8 py-6 shadow-[0_0_50px_rgba(0,0,0,0.3)]">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">
+              专业护理人才培训基地
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 font-medium leading-relaxed">
+              加入乐养E居，系统化学习金牌护理技能，打开高薪职业通道
+            </p>
+          </div>
         </div>
       </section>
 

@@ -14,7 +14,6 @@ import {
   ShieldCheck,
   Calendar
 } from 'lucide-react';
-import Image from 'next/image';
 
 interface UserData {
   phone: string;
@@ -52,14 +51,8 @@ export default function ProfilePage() {
       <div className="bg-brand pt-16 pb-24 px-6 rounded-b-[3rem] shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
         <div className="max-w-4xl mx-auto flex items-center gap-6 relative z-10">
-          <div className="w-24 h-24 rounded-3xl bg-white/20 border-4 border-white/30 backdrop-blur-md flex items-center justify-center text-white overflow-hidden shadow-2xl group hover:scale-105 transition-transform">
-             <Image 
-                src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.phone}`} 
-                alt="Avatar" 
-                fill 
-                className="object-cover"
-                unoptimized
-             />
+          <div className="w-24 h-24 rounded-3xl bg-white/15 border-4 border-white/25 backdrop-blur-md flex items-center justify-center text-white/70 shadow-2xl">
+            <User size={44} strokeWidth={1.5} />
           </div>
           <div className="flex flex-col gap-1 text-white">
             <h1 className="text-3xl font-black">你好，敬爱的用户</h1>
@@ -73,7 +66,7 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 -mt-12 flex flex-col gap-8">
+      <div className="max-w-4xl mx-auto px-4 mt-6 flex flex-col gap-8">
         
         {/* Quick Actions (Admin Entry if applicable) */}
         <div className="bg-white rounded-3xl shadow-xl border border-brand/5 p-6 grid grid-cols-4 gap-4">

@@ -29,8 +29,8 @@ const serviceTypes = [
 
 const caregivers = [
   { id: 1, name: '张阿姨', skills: '术后护理, 助浴', rating: 4.9, experience: '8年', bio: '性格开朗，做事细心，深得老人信任。', avatar: '/images/caregiver1.png' },
-  { id: 2, name: '李姐', skills: '早午餐制作, 心理慰藉', rating: 4.8, experience: '5年', bio: '擅长制作营养餐，擅长沟通陪聊。', avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200' },
-  { id: 3, name: '王师傅', skills: '康复按摩, 轮椅出行', rating: 5.0, experience: '12年', bio: '专业康复训练师背景，体力充沛。', avatar: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&q=80&w=200' },
+  { id: 2, name: '李姐', skills: '早午餐制作, 心理慰藉', rating: 4.8, experience: '5年', bio: '擅长制作营养餐，擅长沟通陪聊。', avatar: '/images/caregiver woman.png' },
+  { id: 3, name: '王师傅', skills: '康复按摩, 轮椅出行', rating: 5.0, experience: '12年', bio: '专业康复训练师背景，体力充沛。', avatar: '/images/caregiver man.png' },
 ];
 
 export default function OrderPage() {
